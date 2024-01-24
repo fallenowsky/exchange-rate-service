@@ -15,6 +15,8 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "rates")
+@TypeAlias("currencyRate")
 public class CurrencyRate {
 
     private String currency;

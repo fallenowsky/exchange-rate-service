@@ -1,0 +1,17 @@
+crontab:
+  processCurrencyRate: "*/1 * * * * *"
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    template:
+      routing-key: rate
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/rates
+      database: rates
+server:
+  port: 8803
