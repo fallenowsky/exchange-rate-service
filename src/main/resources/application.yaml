@@ -11,7 +11,23 @@ spring:
       routing-key: rate
   data:
     mongodb:
-      uri: mongodb://localhost:27017/rates
+      host: localhost
+      port: 28017
       database: rates
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: login-app
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
+            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
 server:
-  port: 8803
+  port: 8081
