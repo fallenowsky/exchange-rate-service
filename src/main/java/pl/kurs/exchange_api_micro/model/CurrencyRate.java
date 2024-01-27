@@ -19,12 +19,10 @@ import java.math.BigDecimal;
 @TypeAlias("currencyRate")
 public class CurrencyRate {
 
-    private String currency;
-
     @Id
     private String code;
 
+    private String currency;
     private BigDecimal bid;
-
     private BigDecimal ask;
 }
