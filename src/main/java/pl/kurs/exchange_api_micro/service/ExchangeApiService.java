@@ -12,6 +12,7 @@ import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
 import pl.kurs.exchange_api_micro.sender.EmailQueueSender;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Service
 @RequiredArgsConstructor
@@ -35,14 +36,15 @@ public class ExchangeApiService {
                 .from(command.getFrom())
                 .to(command.getTo())
                 .amount(command.getAmount())
-                .result(calculateResult(command.getTo(), command.getAmount()))
+                .result(calculateResult(command.getFrom(), command.getAmount()))
                 .build();
         sender.sendCurrencyExchange(exchange);
         return exchange;
     }
 
-    private BigDecimal calculateResult(String to, double amount) {
-        return repository.findByCode(to).getBid().multiply(BigDecimal.valueOf(amount));
+    private BigDecimal calculateResult(String from, double amount) {
+        return repository.findByCode(from).getBid()
+                .multiply(BigDecimal.valueOf(amount));
     }
 
     public CurrencyExchangeDto exchangeAdmin(CurrencyExchangeCommand command) {
