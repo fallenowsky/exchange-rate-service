@@ -1,22 +1,19 @@
 package pl.kurs.exchange_api_micro.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "rates")
-@TypeAlias("currencyRate")
+@Entity
+@Table(name = "rates")
 public class CurrencyRate {
 
     @Id

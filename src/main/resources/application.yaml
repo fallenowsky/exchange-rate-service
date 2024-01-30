@@ -1,5 +1,4 @@
-crontab:
-  processCurrencyRate: "*/1 * * * * *"
+
 spring:
   rabbitmq:
     host: localhost
@@ -9,25 +8,32 @@ spring:
     virtual-host: /
     template:
       routing-key: rate
-  data:
-    mongodb:
-      host: localhost
-      port: 28017
-      database: rates
-  security:
-    oauth2:
-      client:
-        registration:
-          keycloak:
-            client-id: login-app
-            authorization-grant-type: authorization_code
-            scope: openid
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
-            user-name-attribute: preferred_username
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
+  datasource:
+    url: jdbc:mysql://localhost:3309/rates
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: rates
+  jpa:
+    show-sql: true
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            client-id: login-app
+#            authorization-grant-type: authorization_code
+#            scope: openid
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
+#            user-name-attribute: preferred_username
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
 server:
   port: 8081

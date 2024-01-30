@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="refs app">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/service/ExchangeApiServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added service junit tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/controller/ExchangeApiControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/liquibase/changelog/001-init.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/liquibase/db.changelog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/command/CurrencyExchangeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/command/CurrencyExchangeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyExchange$CurrencyExchangeBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyExchange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/CurrencyRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/CurrencyRate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/ExchangeApiMicroApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyRate$CurrencyRateBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyRate$CurrencyRateBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyRate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/kurs/exchange_api_micro/model/CurrencyRate.class" afterDir="false" />
     </list>
@@ -37,6 +39,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,20 +59,40 @@
   "keyToString": {
     "Application.ExchangeApiMicroApplication.executor": "Run",
     "Maven.exchange_api_micro [clean,install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "refs",
     "kotlin-language-version-configured": "true",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "H2"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/liquibase/changelog" />
+      <recent name="$PROJECT_DIR$/src/test/resources/liquibase" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="pl.kurs.exchange_api_micro.controller" />
       <recent name="pl.kurs.exchange_api_micro.service" />
     </key>
   </component>
@@ -78,51 +101,66 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo">
-    <configuration name="ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned">
+    <configuration name="ExchangeApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.service.*" />
+          <option name="PATTERN" value="pl.kurs.exchange_api_micro.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.service" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.service.ExchangeApiServiceTest" />
-      <option name="METHOD_NAME" value="testExchange_HappyPath_ResultsInCurrencyExchangeTo" />
+      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.controller" />
+      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExchangeApiControllerTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exchange_api_micro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.kurs.exchange_api_micro.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.controller" />
+      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExchangeApiServiceTest.testFindAll_HappyPath_ResultsInPageBeingReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.service.*" />
+          <option name="PATTERN" value="pl.kurs.exchange_api_micro.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.service" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.service.ExchangeApiServiceTest" />
-      <option name="METHOD_NAME" value="testFindAll_HappyPath_ResultsInPageBeingReturned" />
+      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.controller" />
+      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
+      <option name="METHOD_NAME" value="testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExchangeApiServiceTest.testFindByCode_HappyPath_ResultsInCurrencyDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="changelog in exchange_api_micro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.service" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.service.ExchangeApiServiceTest" />
-      <option name="METHOD_NAME" value="testFindByCode_HappyPath_ResultsInCurrencyDto" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/resources/liquibase/changelog" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in exchange_api_micro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exchange_api_micro" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,9 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo" />
-        <item itemvalue="JUnit.ExchangeApiServiceTest.testFindByCode_HappyPath_ResultsInCurrencyDto" />
-        <item itemvalue="JUnit.ExchangeApiServiceTest.testFindAll_HappyPath_ResultsInPageBeingReturned" />
+        <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
+        <item itemvalue="JUnit.ExchangeApiControllerTest" />
+        <item itemvalue="JUnit.changelog in exchange_api_micro" />
+        <item itemvalue="JUnit.ExchangeApiControllerTest.test" />
+        <item itemvalue="JUnit.java in exchange_api_micro" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706344765964</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added service junit tests">
+      <option name="closed" value="true" />
+      <created>1706349826486</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706349826486</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +252,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="update2" />
     <MESSAGE value="refs app" />
-    <option name="LAST_COMMIT_MESSAGE" value="refs app" />
+    <MESSAGE value="added service junit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added service junit tests" />
   </component>
 </project>

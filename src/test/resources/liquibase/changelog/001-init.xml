@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_table_rates" author="marcin">
+        <createTable tableName="rates">
+            <column name="code" type="varchar(40)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="currency" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bid" type="decimal(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ask" type="decimal(10,2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint constraintName="unique_currency_constraint" tableName="rates" columnNames="currency"/>
+        <createIndex tableName="rates" indexName="ix_currency_rate">
+            <column name="currency"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="insert_example_rates" author="marcin">
+        <insert tableName="rates">
+            <column name="code" value="USD"/>
+            <column name="currency" value="US Dollar"/>
+            <column name="bid" value="3.99"/>
+            <column name="ask" value="4.10"/>
+        </insert>
+        <insert tableName="rates">
+            <column name="code" value="CHF"/>
+            <column name="currency" value="Frank"/>
+            <column name="bid" value="4.49"/>
+            <column name="ask" value="4.60"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
