@@ -5,19 +5,15 @@ spring:
     port: 5672
     username: guest
     password: guest
-    virtual-host: /
-    template:
-      routing-key: rate
+    queueName: exchangedCurrency
+  liquibase:
+    drop-first: true
+    change-log: liquibase/db.changelog.xml
   datasource:
     url: jdbc:mysql://localhost:3309/rates
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-  #  data:
-#    mongodb:
-#      host: localhost
-#      port: 27017
-#      database: rates
   jpa:
     show-sql: true
 #  security:
@@ -36,4 +32,5 @@ spring:
 #        jwt:
 #          issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
 server:
-  port: 8081
+  port: 8083
+

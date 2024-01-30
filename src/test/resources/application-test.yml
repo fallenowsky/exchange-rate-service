@@ -1,4 +1,4 @@
 spring:
   liquibase:
-    change-log: classpath:liquibase/db.changelog.xml
+    change-log: classpath:liquibase/db.test-changelog.xml
     drop-first: true

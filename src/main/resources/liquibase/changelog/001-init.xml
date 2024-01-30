@@ -25,18 +25,18 @@
         </createIndex>
     </changeSet>
 
-    <changeSet id="insert_example_rates" author="marcin">
-        <insert tableName="rates">
-            <column name="code" value="USD"/>
-            <column name="currency" value="US Dollar"/>
-            <column name="bid" value="3.99"/>
-            <column name="ask" value="4.10"/>
-        </insert>
-        <insert tableName="rates">
-            <column name="code" value="CHF"/>
-            <column name="currency" value="Frank"/>
-            <column name="bid" value="4.49"/>
-            <column name="ask" value="4.60"/>
-        </insert>
-    </changeSet>
+<!--    <changeSet id="insert_example_rates" author="marcin">-->
+<!--        <insert tableName="rates">-->
+<!--            <column name="code" value="USD"/>-->
+<!--            <column name="currency" value="US Dollar"/>-->
+<!--            <column name="bid" value="3.99"/>-->
+<!--            <column name="ask" value="4.10"/>-->
+<!--        </insert>-->
+<!--        <insert tableName="rates">-->
+<!--            <column name="code" value="CHF"/>-->
+<!--            <column name="currency" value="Frank"/>-->
+<!--            <column name="bid" value="4.49"/>-->
+<!--            <column name="ask" value="4.60"/>-->
+<!--        </insert>-->
+<!--    </changeSet>-->
 </databaseChangeLog>
