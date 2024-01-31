@@ -6,31 +6,20 @@ spring:
     username: guest
     password: guest
     queueName: exchangedCurrency
+
   liquibase:
-    drop-first: true
     change-log: liquibase/db.changelog.xml
+
   datasource:
     url: jdbc:mysql://localhost:3309/rates
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     show-sql: true
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          keycloak:
-#            client-id: login-app
-#            authorization-grant-type: authorization_code
-#            scope: openid
-#        provider:
-#          keycloak:
-#            issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
-#            user-name-attribute: preferred_username
-#      resourceserver:
-#        jwt:
-#          issuer-uri: http://localhost:8085/realms/SpringBootKeycloak
+    open-in-view: false
+
 server:
   port: 8083
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="insert_example_rates" author="marcin">
+        <insert tableName="rates">
+            <column name="code" value="USD"/>
+            <column name="currency" value="US Dollar"/>
+            <column name="bid" value="3.99"/>
+            <column name="ask" value="4.15"/>
+        </insert>
+        <insert tableName="rates">
+            <column name="code" value="CHF"/>
+            <column name="currency" value="Frank"/>
+            <column name="bid" value="4.49"/>
+            <column name="ask" value="4.61"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
