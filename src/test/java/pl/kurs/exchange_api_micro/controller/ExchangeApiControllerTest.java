@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import pl.kurs.exchange_api_micro.common.TestContainer;
 import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -22,20 +23,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @ActiveProfiles("test")
-@Testcontainers
 @AutoConfigureMockMvc
 @Sql(value = "/sql/tearDown.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-class ExchangeApiControllerTest {
+class ExchangeApiControllerTest implements TestContainer {
 
     @Autowired
     private ExchangeApiRepository repository;
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Container
-    @ServiceConnection
-    private static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:14.1");
 
 
     @Test

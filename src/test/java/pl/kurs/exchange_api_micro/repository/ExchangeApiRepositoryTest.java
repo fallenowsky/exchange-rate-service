@@ -14,6 +14,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import pl.kurs.exchange_api_micro.common.TestContainer;
 import pl.kurs.exchange_api_micro.model.CurrencyRate;
 
 import java.math.BigDecimal;
@@ -27,21 +28,15 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @DataJpaTest
-@Testcontainers
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class ExchangeApiRepositoryTest {
+class ExchangeApiRepositoryTest implements TestContainer {
 
     @SpyBean
     private ExchangeApiRepository repository;
 
     private CurrencyRate dollar;
     private CurrencyRate frank;
-
-
-    @Container
-    @ServiceConnection
-    private static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15-alpine");
 
 
     @BeforeEach
