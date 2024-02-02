@@ -16,6 +16,7 @@ public class EmailQueueSender {
     @Value("${spring.rabbitmq.queueName}")
     private String queueName;
 
+
     public void sendCurrencyExchange(CurrencyExchangeDto exchange) {
         rabbitTemplate.convertAndSend(queueName, exchange);
     }

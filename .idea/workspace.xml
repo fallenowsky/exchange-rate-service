@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added repository DataJpaTest and moved db creation to currency-persistence-service">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/common/TestContainer.java" afterDir="false" />
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="changed postgres Container to interface">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/controller/ExchangeApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/controller/ExchangeApiControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/sender/EmailQueueSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/sender/EmailQueueSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExchangeApiRepositoryTest">
+  <component name="RunManager" selected="Spring Boot.ExchangeApiMicroApplication">
     <configuration name="ExchangeApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
       <extension name="coverage">
@@ -184,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExchangeApiRepositoryTest" />
         <item itemvalue="JUnit.java in exchange_api_micro" />
+        <item itemvalue="JUnit.ExchangeApiRepositoryTest" />
         <item itemvalue="JUnit.ExchangeApiRepositoryTest.connectionEstablished" />
         <item itemvalue="JUnit.ExchangeApiControllerTest" />
         <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
@@ -207,7 +208,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706128002028</updated>
-      <workItem from="1706621065137" duration="17554000" />
+      <workItem from="1706621065137" duration="24265000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -265,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706702966787</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed postgres Container to interface">
+      <option name="closed" value="true" />
+      <created>1706782525780</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706782525780</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +299,7 @@
     <MESSAGE value="added configuration to test liquibase and IT test-containers postgres" />
     <MESSAGE value="refs" />
     <MESSAGE value="added repository DataJpaTest and moved db creation to currency-persistence-service" />
-    <option name="LAST_COMMIT_MESSAGE" value="added repository DataJpaTest and moved db creation to currency-persistence-service" />
+    <MESSAGE value="changed postgres Container to interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed postgres Container to interface" />
   </component>
 </project>
