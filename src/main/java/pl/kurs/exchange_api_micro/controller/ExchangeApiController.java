@@ -32,13 +32,12 @@ public class ExchangeApiController {
     }
 
     @GetMapping("/exchange")
-    @PreAuthorize("hasAnyRole()")
     public CurrencyExchangeDto exchange(CurrencyExchangeCommand command) {
         return service.exchange(command);
     }
 
     @GetMapping("/exchange-admin")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('client_admin')")
     public CurrencyExchangeDto exchangeAdmin(CurrencyExchangeCommand command) {
         return service.exchangeAdmin(command);
     }
