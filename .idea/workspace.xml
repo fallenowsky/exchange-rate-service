@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added config and filterChain">
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
         <item itemvalue="JUnit.java in exchange_api_micro" />
         <item itemvalue="JUnit.ExchangeApiRepositoryTest" />
         <item itemvalue="JUnit.ExchangeApiRepositoryTest.connectionEstablished" />
         <item itemvalue="JUnit.ExchangeApiControllerTest" />
-        <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +306,8 @@
     <MESSAGE value="added repository DataJpaTest and moved db creation to currency-persistence-service" />
     <MESSAGE value="changed postgres Container to interface" />
     <MESSAGE value="added config and filterChain" />
-    <option name="LAST_COMMIT_MESSAGE" value="added config and filterChain" />
+    <MESSAGE value="added .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
