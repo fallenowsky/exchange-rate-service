@@ -34,5 +34,5 @@ jwt:
       principle-attribute: preferred_username
 
 server:
-  port: 8084
+  port: 8083
 

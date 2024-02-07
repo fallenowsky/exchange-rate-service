@@ -54,18 +54,13 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
     }
 
     private Collection<? extends GrantedAuthority> extractResourceRoles(Jwt jwt) {
-        Map<String, Map<String, Collection<String>>> resourceAccess;
+        Map<String, Map<String, Collection<String>>> resourceAccess = jwt.getClaim(RESOURCE_ACCESS);
 
-        if (jwt.getClaim(RESOURCE_ACCESS) == null) {
+        if (resourceAccess == null || resourceAccess.get(resourceId) == null) {
             return Collections.emptySet();
         }
-        resourceAccess = jwt.getClaim(RESOURCE_ACCESS);
 
-        if (resourceAccess.get(resourceId) == null) {
-            return Collections.emptySet();
-        }
-        Map<String, Collection<String>> resource = resourceAccess.get(resourceId);
-        Collection<String> resourceRoles = resource.get(ROLES);
+        Collection<String> resourceRoles = resourceAccess.get(resourceId).get(ROLES);
 
         return resourceRoles.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))

@@ -3,16 +3,18 @@ package pl.kurs.exchange_api_micro.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
-import pl.kurs.exchange_api_micro.model.CurrencyRate;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 import pl.kurs.exchange_api_micro.model.command.CurrencyExchangeCommand;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyRateDto;
 import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
 import pl.kurs.exchange_api_micro.sender.EmailQueueSender;
+import pl.kurs.exchange_api_micro.utils.AuxiliaryMethods;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +22,7 @@ public class ExchangeApiService {
 
     private final ExchangeApiRepository repository;
     private final EmailQueueSender sender;
+    private final AuxiliaryMethods auxiliaryMethods;
 
 
     public Page<CurrencyRateDto> findAll(Pageable pageable) {
@@ -37,6 +40,7 @@ public class ExchangeApiService {
                 .to(command.getTo())
                 .amount(command.getAmount())
                 .result(calculateResult(command.getFrom(), command.getAmount()))
+                .email(auxiliaryMethods.extractEmail())
                 .build();
         sender.sendCurrencyExchange(exchange);
         return exchange;
@@ -48,6 +52,11 @@ public class ExchangeApiService {
     }
 
     public CurrencyExchangeDto exchangeAdmin(CurrencyExchangeCommand command) {
-        return null;
+        return CurrencyExchangeDto.builder()
+                .from(command.getFrom())
+                .to(command.getTo())
+                .amount(command.getAmount())
+                .result(calculateResult(command.getFrom(), command.getAmount()))
+                .build();
     }
 }
