@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added SecurityConverter">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/utils/AuxiliaryMethods.java" afterDir="false" />
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added extract email from SecurityContext">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/dto/CurrencyExchangeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/model/dto/CurrencyExchangeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/security/JwtAuthConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/security/JwtAuthConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/utils/AuxiliaryMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/utils/AuxiliaryMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/service/ExchangeApiServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/service/ExchangeApiServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707303006353</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added extract email from SecurityContext">
+      <option name="closed" value="true" />
+      <created>1707314735736</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707314735736</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +348,8 @@
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="ref" />
     <MESSAGE value="added SecurityConverter" />
-    <option name="LAST_COMMIT_MESSAGE" value="added SecurityConverter" />
+    <MESSAGE value="added extract email from SecurityContext" />
+    <option name="LAST_COMMIT_MESSAGE" value="added extract email from SecurityContext" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -354,11 +358,6 @@
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-resource-server/6.2.1/spring-security-oauth2-resource-server-6.2.1.jar!/org/springframework/security/oauth2/server/resource/authentication/JwtAuthenticationConverter.class</url>
           <line>23</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

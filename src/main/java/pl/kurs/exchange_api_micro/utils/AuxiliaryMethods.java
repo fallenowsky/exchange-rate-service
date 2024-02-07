@@ -10,8 +10,11 @@ public class AuxiliaryMethods {
 
     public String extractEmail() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        JwtAuthenticationToken jwt = (JwtAuthenticationToken) auth;
 
-        return jwt.getToken().getClaim("email");
+        if (auth instanceof JwtAuthenticationToken) {
+            return ((JwtAuthenticationToken) auth).getToken().getClaim("email");
+        }
+
+        return null;
     }
 }

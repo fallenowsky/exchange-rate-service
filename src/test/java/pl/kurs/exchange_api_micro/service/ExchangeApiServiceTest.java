@@ -90,7 +90,6 @@ class ExchangeApiServiceTest {
     @Test
     public void testExchange_HappyPath_ResultsInCurrencyExchangeTo() {
         BigDecimal expectedResult = BigDecimal.valueOf(399);
-        String email = "mmm@ggog.pl";
         CurrencyExchangeCommand command = CurrencyExchangeCommand.builder()
                 .from("USD")
                 .to("PLN")
@@ -98,7 +97,7 @@ class ExchangeApiServiceTest {
                 .build();
         when(exchangeApiRepository.findByCode("USD")).thenReturn(dollar);
 
-        CurrencyExchangeDto exchanged = service.exchange(command, email);
+        CurrencyExchangeDto exchanged = service.exchange(command);
 
         assertEquals(expectedResult, exchanged.getResult().stripTrailingZeros());
         verify(emailQueueSender, times(1)).sendCurrencyExchange(any(CurrencyExchangeDto.class));
