@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.exchange_api_micro.model.command.CurrencyExchangeCommand;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyRateDto;
@@ -21,6 +22,7 @@ public class ExchangeApiService {
     private final AuthDataService authDataService;
 
 
+    @Transactional(readOnly = true)
     public Page<CurrencyRateDto> findAll(Pageable pageable) {
         return repository.findAll(pageable)
                 .map(CurrencyRateDto::mapToDto);
@@ -30,14 +32,9 @@ public class ExchangeApiService {
         return CurrencyRateDto.mapToDto(repository.findByCode(code));
     }
 
-    public CurrencyExchangeDto exchange(CurrencyExchangeCommand command) {
-        CurrencyExchangeDto exchange = CurrencyExchangeDto.builder()
-                .from(command.getFrom())
-                .to(command.getTo())
-                .amount(command.getAmount())
-                .result(calculateResult(command.getFrom(), command.getAmount()))
-                .email(authDataService.extractAuthData())
-                .build();
+    public CurrencyExchangeDto exchange(CurrencyExchangeCommand command) { //todo aspekt do wysylania?
+        CurrencyExchangeDto exchange = buildExchangeResult(command);
+        exchange.setEmail(authDataService.extractAuthData());
         sender.sendCurrencyExchange(exchange);
         return exchange;
     }
@@ -48,6 +45,10 @@ public class ExchangeApiService {
     }
 
     public CurrencyExchangeDto exchangeAdmin(CurrencyExchangeCommand command) {
+        return buildExchangeResult(command);
+    }
+
+    private CurrencyExchangeDto buildExchangeResult(CurrencyExchangeCommand command) {
         return CurrencyExchangeDto.builder()
                 .from(command.getFrom())
                 .to(command.getTo())

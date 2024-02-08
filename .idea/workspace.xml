@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="changed to property class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/AuthDataService.java" afterDir="false" />
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="changed email extract from token">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/properties/RabbitProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/properties/RabbitProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/utils/AuxiliaryMethods.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,18 +125,11 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ExchangeApiMicroApplication">
-    <configuration name="ExchangeApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo">
+    <configuration name="All in exchange_api_micro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.controller" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -175,17 +165,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExchangeApiRepositoryTest.connectionEstablished" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.repository.*" />
+          <option name="PATTERN" value="pl.kurs.exchange_api_micro.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.repository" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.repository.ExchangeApiRepositoryTest" />
-      <option name="METHOD_NAME" value="connectionEstablished" />
+      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.service.ExchangeApiServiceTest" />
+      <option name="METHOD_NAME" value="testExchange_HappyPath_ResultsInCurrencyExchangeTo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -209,11 +199,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo" />
+        <item itemvalue="JUnit.All in exchange_api_micro" />
         <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
         <item itemvalue="JUnit.java in exchange_api_micro" />
         <item itemvalue="JUnit.ExchangeApiRepositoryTest" />
-        <item itemvalue="JUnit.ExchangeApiRepositoryTest.connectionEstablished" />
-        <item itemvalue="JUnit.ExchangeApiControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -347,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707381489613</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="changed email extract from token">
+      <option name="closed" value="true" />
+      <created>1707384255554</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707384255554</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +379,8 @@
     <MESSAGE value="changed gitignore" />
     <MESSAGE value="changed gitignore #2" />
     <MESSAGE value="changed to property class" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed to property class" />
+    <MESSAGE value="changed email extract from token" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed email extract from token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

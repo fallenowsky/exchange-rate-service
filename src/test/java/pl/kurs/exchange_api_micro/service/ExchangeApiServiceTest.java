@@ -32,6 +32,9 @@ class ExchangeApiServiceTest {
     @Mock
     private EmailQueueSender emailQueueSender;
 
+    @Mock
+    private AuthDataService authDataService;
+
     @InjectMocks
     private ExchangeApiService service;
 
@@ -96,13 +99,15 @@ class ExchangeApiServiceTest {
                 .amount(100)
                 .build();
         when(exchangeApiRepository.findByCode("USD")).thenReturn(dollar);
+        when(authDataService.extractAuthData()).thenReturn("example@email.com");
 
         CurrencyExchangeDto exchanged = service.exchange(command);
 
         assertEquals(expectedResult, exchanged.getResult().stripTrailingZeros());
         verify(emailQueueSender, times(1)).sendCurrencyExchange(any(CurrencyExchangeDto.class));
         verify(exchangeApiRepository, times(1)).findByCode("USD");
-        verifyNoMoreInteractions(emailQueueSender, exchangeApiRepository);
+        verify(authDataService, times(1)).extractAuthData();
+        verifyNoMoreInteractions(emailQueueSender, exchangeApiRepository, authDataService);
     }
 
 }
