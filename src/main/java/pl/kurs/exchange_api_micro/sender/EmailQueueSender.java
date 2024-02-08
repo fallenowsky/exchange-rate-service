@@ -5,6 +5,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
+import pl.kurs.exchange_api_micro.properties.RabbitProperties;
 
 
 @Service
@@ -12,13 +13,11 @@ import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 public class EmailQueueSender {
 
     private final RabbitTemplate rabbitTemplate;
-
-    @Value("${spring.rabbitmq.queueName}")
-    private String queueName;
+    private final RabbitProperties rabbitProperties;
 
 
     public void sendCurrencyExchange(CurrencyExchangeDto exchange) {
-        rabbitTemplate.convertAndSend(queueName, exchange);
+        rabbitTemplate.convertAndSend(rabbitProperties.getQueueName(), exchange);
     }
 }
 
