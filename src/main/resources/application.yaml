@@ -5,7 +5,7 @@ spring:
     port: 5672
     username: guest
     password: guest
-    queueName: exchangedCurrency
+    queue-name: send_email_data_queue
 
   liquibase:
     change-log: liquibase/db.changelog.xml

@@ -9,7 +9,6 @@ import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyRateDto;
 import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
 import pl.kurs.exchange_api_micro.sender.EmailQueueSender;
-import pl.kurs.exchange_api_micro.utils.AuxiliaryMethods;
 
 import java.math.BigDecimal;
 
@@ -19,7 +18,7 @@ public class ExchangeApiService {
 
     private final ExchangeApiRepository repository;
     private final EmailQueueSender sender;
-    private final AuxiliaryMethods auxiliaryMethods;
+    private final AuthDataService authDataService;
 
 
     public Page<CurrencyRateDto> findAll(Pageable pageable) {
@@ -37,7 +36,7 @@ public class ExchangeApiService {
                 .to(command.getTo())
                 .amount(command.getAmount())
                 .result(calculateResult(command.getFrom(), command.getAmount()))
-                .email(auxiliaryMethods.extractEmail())
+                .email(authDataService.extractAuthData())
                 .build();
         sender.sendCurrencyExchange(exchange);
         return exchange;
