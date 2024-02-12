@@ -1,10 +1,13 @@
 package pl.kurs.exchange_api_micro.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.kurs.exchange_api_micro.aop.PublishEmailEvent;
+import pl.kurs.exchange_api_micro.event.EmailEventPublisher;
 import pl.kurs.exchange_api_micro.model.command.CurrencyExchangeCommand;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyRateDto;
@@ -12,14 +15,13 @@ import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
 import pl.kurs.exchange_api_micro.sender.EmailQueueSender;
 
 import java.math.BigDecimal;
+import java.text.MessageFormat;
 
 @Service
 @RequiredArgsConstructor
 public class ExchangeApiService {
 
     private final ExchangeApiRepository repository;
-    private final EmailQueueSender sender;
-    private final AuthDataService authDataService;
 
 
     @Transactional(readOnly = true)
@@ -29,18 +31,20 @@ public class ExchangeApiService {
     }
 
     public CurrencyRateDto findByCode(String code) {
-        return CurrencyRateDto.mapToDto(repository.findByCode(code));
+        return CurrencyRateDto.mapToDto(repository.findByCode(code).orElseThrow(
+                () -> new EntityNotFoundException(MessageFormat.format("Currency with code={0} not found", code))
+        ));
     }
 
-    public CurrencyExchangeDto exchange(CurrencyExchangeCommand command) { //todo aspekt do wysylania?
-        CurrencyExchangeDto exchange = buildExchangeResult(command);
-        exchange.setEmail(authDataService.extractAuthData());
-        sender.sendCurrencyExchange(exchange);
-        return exchange;
+    @PublishEmailEvent
+    public CurrencyExchangeDto exchange(CurrencyExchangeCommand command) {
+        return buildExchangeResult(command);
     }
 
     private BigDecimal calculateResult(String from, double amount) {
-        return repository.findByCode(from).getBid()
+        return repository.findByCode(from)
+                .orElseThrow(() -> new EntityNotFoundException("Currency with code " + from + " not found"))
+                .getBid()
                 .multiply(BigDecimal.valueOf(amount));
     }
 
@@ -48,7 +52,7 @@ public class ExchangeApiService {
         return buildExchangeResult(command);
     }
 
-    private CurrencyExchangeDto buildExchangeResult(CurrencyExchangeCommand command) {
+    public CurrencyExchangeDto buildExchangeResult(CurrencyExchangeCommand command) {
         return CurrencyExchangeDto.builder()
                 .from(command.getFrom())
                 .to(command.getTo())

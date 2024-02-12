@@ -19,6 +19,7 @@ import pl.kurs.exchange_api_micro.model.CurrencyRate;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -64,8 +65,8 @@ class ExchangeApiRepositoryTest implements TestContainer {
 
     @Test
     public void testFindByCode_HappyPath_ResultsInCurrencyBeingReturned() {
-        CurrencyRate usd = repository.findByCode("USD");
-        CurrencyRate chf = repository.findByCode("CHF");
+        CurrencyRate usd = repository.findByCode("USD").orElseGet(CurrencyRate::new);
+        CurrencyRate chf = repository.findByCode("CHF").orElseGet(CurrencyRate::new);
 
         assertThat(usd).usingRecursiveComparison().isEqualTo(dollar);
         assertThat(chf).usingRecursiveComparison().isEqualTo(frank);
@@ -74,7 +75,7 @@ class ExchangeApiRepositoryTest implements TestContainer {
 
     @Test
     public void testFindByCode_CurrencyNotExists_ResultsInNullBeingReturned() {
-        CurrencyRate klp = repository.findByCode("KLP");
+        CurrencyRate klp = repository.findByCode("KLP").orElse(null);
 
         assertNull(klp);
         verify(repository, times(1)).findByCode("KLP");

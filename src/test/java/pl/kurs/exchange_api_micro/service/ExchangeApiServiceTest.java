@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -81,7 +82,7 @@ class ExchangeApiServiceTest {
     @Test
     public void testFindByCode_HappyPath_ResultsInCurrencyDto() {
         CurrencyRateDto frankDto = CurrencyRateDto.mapToDto(frank);
-        when(exchangeApiRepository.findByCode("CHF")).thenReturn(frank);
+        when(exchangeApiRepository.findByCode("CHF")).thenReturn(Optional.of(frank));
 
         CurrencyRateDto rateDto = service.findByCode("CHF");
 
@@ -98,7 +99,7 @@ class ExchangeApiServiceTest {
                 .to("PLN")
                 .amount(100)
                 .build();
-        when(exchangeApiRepository.findByCode("USD")).thenReturn(dollar);
+        when(exchangeApiRepository.findByCode("USD")).thenReturn(Optional.of(dollar));
         when(authDataService.extractAuthData()).thenReturn("example@email.com");
 
         CurrencyExchangeDto exchanged = service.exchange(command);

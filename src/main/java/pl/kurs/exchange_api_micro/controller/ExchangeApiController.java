@@ -19,6 +19,7 @@ import pl.kurs.exchange_api_micro.service.ExchangeApiService;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/currencies")
 public class ExchangeApiController {
+
     private final ExchangeApiService service;
 
     @GetMapping

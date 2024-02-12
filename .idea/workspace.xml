@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="ref test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/facade/auth/AuthenticationFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/facade/auth/IAuthenticationFacade.java" afterDir="false" />
+    <list default="true" id="60a4cd0a-d935-4e14-8580-008ee492de95" name="Changes" comment="added AuthenticationFacade.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/aop/EventPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/aop/PublishEmailEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/config/AsyncConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/event/EmailEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/event/EmailEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/event/EmailEventPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/properties/AsyncProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/ExchangeApiMicroApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/ExchangeApiMicroApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/controller/ExchangeApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/AuthDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/AuthDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kurs/exchange_api_micro/service/ExchangeApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/repository/ExchangeApiRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/service/ExchangeApiServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/kurs/exchange_api_micro/service/ExchangeApiServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +32,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -122,17 +135,35 @@
       <recent name="pl.kurs.exchange_api_micro.controller" />
       <recent name="pl.kurs.exchange_api_micro.service" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pl.kurs.exchange_api_micro.config" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo">
+  <component name="RunManager" selected="Spring Boot.ExchangeApiMicroApplication">
     <configuration name="All in exchange_api_micro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="exchange_api_micro" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExchangeApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="exchange_api_micro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.kurs.exchange_api_micro.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.controller" />
+      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,21 +180,6 @@
       <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.controller.ExchangeApiControllerTest" />
       <option name="METHOD_NAME" value="testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExchangeApiRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="exchange_api_micro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pl.kurs.exchange_api_micro.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pl.kurs.exchange_api_micro.repository" />
-      <option name="MAIN_CLASS_NAME" value="pl.kurs.exchange_api_micro.repository.ExchangeApiRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExchangeApiControllerTest" />
+        <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
         <item itemvalue="JUnit.ExchangeApiServiceTest.testExchange_HappyPath_ResultsInCurrencyExchangeTo" />
         <item itemvalue="JUnit.All in exchange_api_micro" />
-        <item itemvalue="JUnit.ExchangeApiControllerTest.testFindAll_HappyPath_ResultsInPagedDtosBeingReturned" />
         <item itemvalue="JUnit.java in exchange_api_micro" />
-        <item itemvalue="JUnit.ExchangeApiRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +243,7 @@
       <updated>1706128002028</updated>
       <workItem from="1706621065137" duration="33586000" />
       <workItem from="1707125646214" duration="607000" />
-      <workItem from="1707730454747" duration="1348000" />
+      <workItem from="1707730454747" duration="11732000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -357,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707389238259</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added AuthenticationFacade.java">
+      <option name="closed" value="true" />
+      <created>1707736454729</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707736454729</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +417,8 @@
     <MESSAGE value="changed to property class" />
     <MESSAGE value="changed email extract from token" />
     <MESSAGE value="ref test" />
-    <option name="LAST_COMMIT_MESSAGE" value="ref test" />
+    <MESSAGE value="added AuthenticationFacade.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="added AuthenticationFacade.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

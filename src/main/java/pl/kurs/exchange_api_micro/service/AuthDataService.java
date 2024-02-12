@@ -14,6 +14,8 @@ import java.util.Base64;
 @RequiredArgsConstructor
 public class AuthDataService {
 
+    private static final String CLAIM_NAME = "email";
+
     private final ObjectMapper objectMapper;
     private final IAuthenticationFacade authenticationFacade;
 
@@ -29,7 +31,7 @@ public class AuthDataService {
         String tokenPayload = token.split("\\.")[1];
         String jsonPayload = new String(Base64.getDecoder().decode(tokenPayload), StandardCharsets.UTF_8);
         try {
-            return objectMapper.readTree(jsonPayload).get("email").asText();
+            return objectMapper.readTree(jsonPayload).get(CLAIM_NAME).asText();
         } catch (Exception e) {
             throw new RuntimeException();
         }
