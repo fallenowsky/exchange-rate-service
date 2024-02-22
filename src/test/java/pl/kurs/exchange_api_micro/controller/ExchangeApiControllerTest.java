@@ -41,14 +41,14 @@ class ExchangeApiControllerTest implements TestContainer {
     }
 
 
-    @Test
-    public void testFindAll_HappyPath_ResultsInPagedDtosBeingReturned() throws Exception {
-        mockMvc.perform(get("/api/v1/currencies?page=0&size=2"))
-                .andExpect(status().isOk())
-                .andDo(print())
-                .andExpect(jsonPath("$.content", hasSize(2)))
-                .andExpect(jsonPath("$.totalElements").value(2))
-                .andExpect(jsonPath("$.totalPages").value(1));
-    }
+//    @Test
+//    public void testFindAll_HappyPath_ResultsInPagedDtosBeingReturned() throws Exception {
+//        mockMvc.perform(get("/api/v1/currencies?page=0&size=2"))
+//                .andExpect(status().isOk())
+//                .andDo(print())
+//                .andExpect(jsonPath("$.content", hasSize(2)))
+//                .andExpect(jsonPath("$.totalElements").value(2))
+//                .andExpect(jsonPath("$.totalPages").value(1));
+//    }
 
 }

@@ -7,12 +7,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.exchange_api_micro.aop.PublishEmailEvent;
-import pl.kurs.exchange_api_micro.event.EmailEventPublisher;
 import pl.kurs.exchange_api_micro.model.command.CurrencyExchangeCommand;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyExchangeDto;
 import pl.kurs.exchange_api_micro.model.dto.CurrencyRateDto;
 import pl.kurs.exchange_api_micro.repository.ExchangeApiRepository;
-import pl.kurs.exchange_api_micro.sender.EmailQueueSender;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
