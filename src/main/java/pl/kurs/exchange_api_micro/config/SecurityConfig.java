@@ -27,6 +27,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("api/v1/currencies").permitAll()
                         .requestMatchers("api/v1/currencies/by-code").permitAll()
+                        .requestMatchers("api/v1/currencies/exchange").hasRole("user")
+                        .requestMatchers("api/v1/currencies/exchange-admin").hasAnyRole("admin", "user")
                         .anyRequest().authenticated()
                 )
                 .formLogin(withDefaults())
@@ -34,7 +36,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable);
 
         http
-                .oauth2ResourceServer((oauth2) -> oauth2
+                .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter))
                 );
 

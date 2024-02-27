@@ -1,19 +1,17 @@
 
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-    queue-name: send_email_data_queue
+    addresses: ${RABBIT_ADDRESSES:localhost:5671}
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
 
   liquibase:
     change-log: liquibase/db.changelog.xml
 
   datasource:
-    url: jdbc:mysql://localhost:3309/rates
-    username: root
-    password: root
+    url: jdbc:mysql://${MYSQL_ADDRESSES:localhost:3305}/${MYSQL_DATABASE:rates}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -22,10 +20,10 @@ spring:
 
   security:
     oauth2:
-      resourceserver:
+      resource-server:
         jwt:
-          issuer-uri: http://localhost:8080/realms/RATES
-          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+          issuer-uri: http://${KEYCLOAK_ADDRESSES:localhost:8078}/realms/RATES
+          jwk-set-uri: ${spring.security.oauth2.resource-server.jwt.issuer-uri}/protocol/openid-connect/certs
 
 jwt:
   auth:
@@ -34,8 +32,9 @@ jwt:
       principle-attribute: preferred_username
 
 server:
-  port: 8083
+  port: ${APP_PORT:8087}
 
 app:
   async:
     threads: 3
+  queue-name: send_email_data_queue
